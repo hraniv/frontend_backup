@@ -1,0 +1,7 @@
+<nav class="nav">
+    <ul class="nav__list">
+        <li *ngFor="let category of categories; let i = index" class="nav__item">
+            <a href="{{category.url}}">{{category.name}}</a>
+        </li>
+    </ul>
+</nav>
