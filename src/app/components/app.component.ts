@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<main-nav></main-nav>`
+  templateUrl: './app/components/app.component.ng.html',
 })
 export class AppComponent  {}
