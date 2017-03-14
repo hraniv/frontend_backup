@@ -62,5 +62,6 @@ typings/
 .env
 
 #compiled ts
-#*.component.js
-#*.component.js.map
+*.component.js
+main.js
+*.js.map
