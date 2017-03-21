@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
 
 @Component({
-  selector: 'my-app',
-  template: `<main-nav></main-nav>`
+    moduleId: module.id,
+    selector: 'my-app',
+    templateUrl: 'app.component.ng.html',
 })
-export class AppComponent  {}
+export class AppComponent {
+}

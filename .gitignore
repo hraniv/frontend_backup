@@ -63,5 +63,8 @@ typings/
 
 #compiled ts
 *.component.js
+*.service.js
 main.js
+*.routing.js
+*.module.js
 *.js.map
