@@ -1,24 +1,31 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoriesService} from '../services/categories.service'
+import {Category} from './category'
+import {Router} from "@angular/router";
 
 @Component({
     moduleId: module.id,
     selector: 'main-nav',
     templateUrl: 'category.component.ng.html',
-    providers: [CategoriesService]
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit{
     categories: Category[];
 
-    constructor(private categoriesService: CategoriesService) {
+    constructor(
+        private router: Router,
+        private categoriesService: CategoriesService
+    ) {}
+    ngOnInit(){
         this.categoriesService.getCategories().subscribe(categories => {
             this.categories = categories;
         });
     }
-}
 
-interface Category {
-    id: number;
-    name: string;
-    url: string;
+    isCategoryActive(category: Category): boolean {
+        if (this.router.url === "/"){
+            return category.isDefault;
+        }else{
+            return this.router.url === "/category/" + category.id;
+        }
+    }
 }

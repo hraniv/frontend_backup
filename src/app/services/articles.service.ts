@@ -13,8 +13,12 @@ export class ArticlesService {
         console.log('ArticlesService Initialized...');
     }
 
-    getArticles(){
-        return this.http.get(SERVER_HOST + '/articles')
+    getArticles(id:number){
+        //todo when replaced with slug use home and make home slug global setting constant for project
+        if (!id){
+            id = 1;
+        }
+        return this.http.get(SERVER_HOST + '/articles?category='+id)
             .map(res => res.json());
     }
 }

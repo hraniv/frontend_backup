@@ -4,16 +4,16 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {AppComponent} from './components/app.component';
+import {ContentComponent} from './components/content.component';
 
 const APPROUTES: Routes = [
     {
         path:'',
-        component: AppComponent
+        component: ContentComponent
     },
     {
-        path: 'category/:slug',
-        component: AppComponent
+        path:'category/:id',
+        component: ContentComponent
     }
 ];
 
