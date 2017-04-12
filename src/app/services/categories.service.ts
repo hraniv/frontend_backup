@@ -4,17 +4,15 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-
-import {SERVER_HOST} from '../app.module'
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Injectable()
 export class CategoriesService {
-    constructor(private http: Http){
+    constructor(private http: Http, private af: AngularFire){
         console.log('CategoriesService Initialized...');
     }
 
     getCategories(){
-        return this.http.get(SERVER_HOST + '/categories')
-            .map(res => res.json());
+      return this.af.database.list('/categories');
     }
 }
