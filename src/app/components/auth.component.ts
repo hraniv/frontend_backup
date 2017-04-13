@@ -7,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import {AngularFire} from 'angularfire2';
+import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
 
 
 @Component({
@@ -25,5 +25,12 @@ export class AuthComponent {
 
   login() {
     this.af.auth.login();
+  }
+
+  loginFb() {
+    this.af.auth.login({
+      provider: AuthProviders.Facebook,
+      method: AuthMethods.Redirect,
+    });
   }
 }
