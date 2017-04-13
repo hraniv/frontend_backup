@@ -5,6 +5,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {ContentComponent} from './components/content.component';
+import {AuthComponent} from './components/auth.component';
 
 const APPROUTES: Routes = [
     {
@@ -14,6 +15,10 @@ const APPROUTES: Routes = [
     {
         path:'category/:id',
         component: ContentComponent
+    },
+    {
+        path:'login',
+        component: AuthComponent
     }
 ];
 
