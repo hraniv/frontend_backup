@@ -14,10 +14,11 @@ import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
   moduleId: module.id,
   selector: 'content',
   templateUrl: 'auth.component.html',
+  styleUrls: ['auth.component.css'],
 })
 export class AuthComponent {
 
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, private router: Router) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
     //     this.articles = articles;
     // });
@@ -25,6 +26,7 @@ export class AuthComponent {
 
   login() {
     this.af.auth.login();
+    this.router.navigate(['']).catch((err) => {console.error(err)});
   }
 
   loginFb() {
