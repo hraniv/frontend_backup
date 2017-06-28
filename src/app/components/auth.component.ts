@@ -24,7 +24,8 @@ export class AuthComponent {
     // });
   }
 
-  login() {
+  loginG() {
+    //call basic login function which is configured to use Google provider in app.module.ts
     this.af.auth.login();
     this.router.navigate(['']).catch((err) => {console.error(err)});
   }
