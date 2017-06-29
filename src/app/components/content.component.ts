@@ -4,6 +4,7 @@ import 'rxjs/add/operator/switchMap';
 
 import {ArticlesService} from '../services/articles.service'
 import {Category} from "./category";
+import {Url} from "../app.routing"
 
 @Component({
     moduleId: module.id,

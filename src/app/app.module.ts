@@ -1,13 +1,17 @@
 import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import {AppComponent}  from './components/app.component';
 import {CategoriesService} from './services/categories.service'
+import {ArticlesService} from './services/articles.service'
 import {CategoryComponent}  from './components/category.component';
 import {ContentComponent}  from './components/content.component';
 import {AuthComponent}  from './components/auth.component';
+import {AddArticleComponent}  from './components/add.component';
+import {EditArticleComponent}  from './components/edit.component';
 import {ROUTING} from './app.routing';
 
 // Must export the config
@@ -19,6 +23,7 @@ export const firebaseConfig = {
       storageBucket: "village-57ea4.appspot.com",
       messagingSenderId: "708193878590"
     };
+//docs are here https://github.com/angular/angularfire2/blob/master/docs/5-user-authentication.md
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
   method: AuthMethods.Redirect
@@ -26,11 +31,11 @@ const myFirebaseAuthConfig = {
 
 @NgModule({
     imports: [BrowserModule, HttpModule, ROUTING,
-        AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+        AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig), FormsModule
     ],
-    declarations: [AppComponent, CategoryComponent, ContentComponent, AuthComponent],
+    declarations: [AppComponent, CategoryComponent, ContentComponent, AuthComponent, AddArticleComponent, EditArticleComponent],
     bootstrap: [AppComponent],
-    providers: [CategoriesService]
+    providers: [CategoriesService, ArticlesService]
 })
 export class AppModule {
 }

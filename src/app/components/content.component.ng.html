@@ -5,10 +5,11 @@
     </section>
 </section>
 <nav class="side-nav">
+    <a class="button button-primary" [routerLink]="['/articles/add']">Add new article</a>
     <ul class="side-nav__list">
         <li *ngFor="let article of articles; let i = index" class="side-nav__item">
             <!--todo category link with anchor-->
-            <a href="#{{article.id}}">{{article.title}}</a>
+            <a href="#{{article.$key}}">{{article.title}}</a>
         </li>
     </ul>
 </nav>
