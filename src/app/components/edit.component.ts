@@ -7,6 +7,9 @@ import 'rxjs/add/operator/switchMap';
 
 import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
 
+import {ArticlesService} from '../services/articles.service'
+import {Article} from './content.component'
+
 
 @Component({
   moduleId: module.id,
@@ -14,24 +17,29 @@ import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
   templateUrl: 'edit.component.html',
   styleUrls: ['edit.component.css'],
 })
-export class EditArticleComponent {
 
-  constructor(private af: AngularFire, private router: Router) {
+export class EditArticleComponent implements OnInit{
+
+  article: Article;
+
+  constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
     //     this.articles = articles;
     // });
   }
-
-  loginG() {
-    //call basic login function which is configured to use Google provider in app.module.ts
-    this.af.auth.login();
-    this.router.navigate(['']).catch((err) => {console.error(err)});
+  editArticle(){
+    // let article = {
+    //         title: this.title,
+    //         content: this.content,
+    //         category: this.category,
+    //     };
+    //     this.service.addArticle(article);
+    //     this.router.navigate([`category/${this.category}`]).catch(err => {console.error(err, 'Navigate error')});
   }
-
-  loginFb() {
-    this.af.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Redirect,
-    });
-  }
+  ngOnInit(){
+        this.route.params
+        // (+) converts string 'id' to a number
+        .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
+        .subscribe((article:Article) => this.article=article);
+    }
 }

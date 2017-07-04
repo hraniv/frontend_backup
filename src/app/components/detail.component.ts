@@ -5,7 +5,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import {AngularFire, AuthProviders, AuthMethods} from 'angularfire2';
+import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 import {ArticlesService} from '../services/articles.service'
 import {Article} from './content.component'
@@ -18,9 +18,9 @@ import {Article} from './content.component'
   styleUrls: ['detail.component.css'],
 })
 
-export class EditArticleComponent implements OnInit{
+export class DetailArticleComponent implements OnInit{
 
-  article: Article;
+  article: FirebaseObjectObservable <Article>;
 
   constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
@@ -40,9 +40,10 @@ export class EditArticleComponent implements OnInit{
         this.route.params
         // (+) converts string 'id' to a number
         .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
-        .subscribe((article:Article) => this.article=article);
+        .subscribe((article:FirebaseObjectObservable<Article>) => this.article=article, (err) => console.error(err));
+    }
+
+    remove(){
+      console.log(this.article);
     }
 }
-/**
- * Created by xgalv00 on 30.06.17.
- */

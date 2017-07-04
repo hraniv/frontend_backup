@@ -1,19 +1,15 @@
-<section class="add form">
-  Add works
-  <!--<section class="auth-content">-->
-    <!--<a (click)="loginG()" class="auth-btn auth-center google">-->
-      <!--<span class="icon fa fa-google"></span>-->
-      <!--<span class="buttonText">Log in with Google</span>-->
-    <!--</a>-->
-    <!--<a (click)="loginFb()" class="auth-btn auth-center fb">-->
-      <!--<span class="icon fa fa-facebook-f"></span>-->
-      <!--<span class="buttonText">Log in with Facebook</span>-->
-    <!--</a>-->
-    <!--<div>or</div>-->
-    <!--<form>-->
-      <!--<input id="email" name="email" type="email" placeholder="Email" required>-->
-      <!--<input id="password" name="password" placeholder="Password" type="password" required>-->
-      <!--<input type="submit" class="button button-primary" value="Sign in">-->
-    <!--</form>-->
-  <!--</section>-->
+<section class="edit form">
+  <section class="edit-content">
+    <form (submit)="editArticle()">
+      <input id="title" name="title" type="text" [(ngModel)]="article.title" title="Title" placeholder="Title" required>
+      <textarea name="content" id="content" title="content" [(ngModel)]="article.content" placeholder="Content" cols="30" rows="50" required></textarea>
+      <select name="category" id="category" title="category" [(ngModel)]="article.category">
+        <option value="1">Home</option>
+        <option value="2">Business</option>
+      </select>
+      <input type="submit" class="button button-primary" value="Add new article">
+    </form>
+  </section>
+
+
 </section>

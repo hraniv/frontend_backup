@@ -34,9 +34,10 @@ export class ContentComponent implements OnInit{
     }
 }
 
-interface Article {
+export interface Article {
     id: number;
     title: string;
     content: string;
+    category: string;
     img?: string;
 }

@@ -12,6 +12,7 @@ import {ContentComponent}  from './components/content.component';
 import {AuthComponent}  from './components/auth.component';
 import {AddArticleComponent}  from './components/add.component';
 import {EditArticleComponent}  from './components/edit.component';
+import {DetailArticleComponent}  from './components/detail.component';
 import {ROUTING} from './app.routing';
 
 // Must export the config
@@ -33,7 +34,8 @@ const myFirebaseAuthConfig = {
     imports: [BrowserModule, HttpModule, ROUTING,
         AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig), FormsModule
     ],
-    declarations: [AppComponent, CategoryComponent, ContentComponent, AuthComponent, AddArticleComponent, EditArticleComponent],
+    declarations: [AppComponent, CategoryComponent, ContentComponent,
+      AuthComponent, AddArticleComponent, EditArticleComponent, DetailArticleComponent],
     bootstrap: [AppComponent],
     providers: [CategoriesService, ArticlesService]
 })

@@ -8,6 +8,7 @@ import {ContentComponent} from './components/content.component';
 import {AuthComponent} from './components/auth.component';
 import {AddArticleComponent} from './components/add.component';
 import {EditArticleComponent} from './components/edit.component';
+import {DetailArticleComponent} from './components/detail.component';
 
 // add named routing from solution https://stackoverflow.com/questions/37999286/angular2-named-routes
 export class Url {
@@ -39,8 +40,12 @@ const APPROUTES: Routes = [
         component: AddArticleComponent
     },
     {
-        path: 'articles/:id/edit',
+        path: 'articles/:cid/:id/edit',
         component: EditArticleComponent
+    },
+    {
+        path: 'articles/:cid/:id',
+        component: DetailArticleComponent
     }
 ];
 
