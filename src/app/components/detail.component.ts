@@ -6,6 +6,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import * as firebase from 'firebase';
 
 import {ArticlesService} from '../services/articles.service'
 import {Article} from './content.component'

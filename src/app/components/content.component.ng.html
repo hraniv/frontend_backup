@@ -1,6 +1,7 @@
 
 <section class="info">
     <section *ngFor="let article of articles" class="info__item" >
+      <div class="image"><img style="width:50%" class="thumbnail" src="{{article.imageUrl}}"></div>
     {{article.content}}
     </section>
 </section>

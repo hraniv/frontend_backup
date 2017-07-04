@@ -20,6 +20,7 @@ export class AddArticleComponent {
   title: any;
   content: any;
   category: any;
+  image: any;
 
   constructor(private af: AngularFire, private router: Router, private articleServise: ArticlesService) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
