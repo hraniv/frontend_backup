@@ -44,6 +44,8 @@ export class DetailArticleComponent implements OnInit{
     }
 
     remove(){
-      console.log(this.article);
+      let redirect_url = `/category/${this.article.category}`;
+      this.service.deleteArticle(this.article.$key);
+      this.router.navigateByUrl(redirect_url);
     }
 }

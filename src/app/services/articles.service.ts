@@ -13,6 +13,8 @@ import {Article} from '../components/content.component'
 export class ArticlesService {
     constructor(private http: Http, private af: AngularFire){
         console.log('ArticlesService Initialized...');
+        //todo uncomment this when will rewrite organization of articles and categories
+        // this.articles = this.af.database.list('/articles') as FirebaseListObservable<Article[]>
     }
     articles: FirebaseListObservable<any[]>;
 
@@ -29,6 +31,17 @@ export class ArticlesService {
         //todo make urls more consistent. Remove category grouping and list articles by category
         return this.af.database.object(`/articles/${cid}/${id}`);
     }
+
+    deleteArticle(id:any){
+      // return this.articles.remove(id);
+      console.log(`call to firebase remove ${id}`);
+    }
+
+    updateArticle(id:any){
+      // return this.articles.remove(id);
+      console.log(`call to firebase update ${id}`);
+    }
+
     //todo replace any with interface
     addArticle(article:any){
       let cid = article.category;

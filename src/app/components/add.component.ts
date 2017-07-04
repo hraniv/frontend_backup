@@ -26,13 +26,16 @@ export class AddArticleComponent {
     //     this.articles = articles;
     // });
   }
-  addArticle(){
+
+  addArticle() {
     let article = {
-            title: this.title,
-            content: this.content,
-            category: this.category,
-        };
-        this.articleServise.addArticle(article);
-        this.router.navigate([`category/${this.category}`]).catch(err => {console.error(err, 'Navigate error')});
+      title: this.title,
+      content: this.content,
+      category: this.category,
+    };
+    this.articleServise.addArticle(article);
+    this.router.navigate([`category/${this.category}`]).catch(err => {
+      console.error(err, 'Navigate error')
+    });
   }
 }
