@@ -18,7 +18,7 @@ import {Article} from './content.component'
   styleUrls: ['detail.component.css'],
 })
 
-export class DetailArticleComponent implements OnInit{
+export class DetailArticleComponent implements OnInit {
 
   article: FirebaseObjectObservable <Article>;
 
@@ -27,25 +27,17 @@ export class DetailArticleComponent implements OnInit{
     //     this.articles = articles;
     // });
   }
-  editArticle(){
-    // let article = {
-    //         title: this.title,
-    //         content: this.content,
-    //         category: this.category,
-    //     };
-    //     this.service.addArticle(article);
-    //     this.router.navigate([`category/${this.category}`]).catch(err => {console.error(err, 'Navigate error')});
-  }
-  ngOnInit(){
-        this.route.params
-        // (+) converts string 'id' to a number
-        .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
-        .subscribe((article:FirebaseObjectObservable<Article>) => this.article=article, (err) => console.error(err));
-    }
 
-    remove(){
-      let redirect_url = `/category/${this.article.category}`;
-      this.service.deleteArticle(this.article.$key);
-      this.router.navigateByUrl(redirect_url);
-    }
+  ngOnInit() {
+    this.route.params
+    // (+) converts string 'id' to a number
+      .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
+      .subscribe((article: FirebaseObjectObservable<Article>) => this.article = article, (err) => console.error(err));
+  }
+
+  remove() {
+    let redirect_url = `/category/${this.article.category}`;
+    this.service.deleteArticle(this.article.$key);
+    this.router.navigateByUrl(redirect_url).catch(err => console.error(err));
+  }
 }

@@ -37,9 +37,10 @@ export class ArticlesService {
       console.log(`call to firebase remove ${id}`);
     }
 
-    updateArticle(id:any){
+    updateArticle(id:any, article:any){
       // return this.articles.remove(id);
       console.log(`call to firebase update ${id}`);
+      console.log(`data ${article}`);
     }
 
     //todo replace any with interface
