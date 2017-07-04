@@ -6,6 +6,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
+import * as firebase from 'firebase';
 
 import {ArticlesService} from '../services/articles.service'
 import {Article} from './content.component'
@@ -20,7 +21,7 @@ import {Article} from './content.component'
 
 export class DetailArticleComponent implements OnInit {
 
-  article: FirebaseObjectObservable <Article>;
+  article: any;
 
   constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {

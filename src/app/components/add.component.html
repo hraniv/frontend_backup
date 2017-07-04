@@ -1,6 +1,7 @@
 <section class="add form">
   <section class="add-content">
     <form (submit)="addArticle()">
+      <input id="image" name="image" [(ngModel)]="image" type="file" >
       <input id="title" name="title" type="text" [(ngModel)]="title" title="Title" placeholder="Title" required>
       <textarea name="content" id="content" title="content" [(ngModel)]="content" placeholder="Content" cols="30" rows="50" required></textarea>
       <select name="category" id="category" title="category" [(ngModel)]="category">

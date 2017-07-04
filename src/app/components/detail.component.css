@@ -29,6 +29,7 @@
 .detail-content .article-content {
   text-align: justify;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .detail-content .image {
