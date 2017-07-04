@@ -20,7 +20,10 @@ import {Article} from './content.component'
 
 export class EditArticleComponent implements OnInit {
 
-  article: FirebaseObjectObservable<Article>;
+  //used to use this but it is not compile due to Typescript errors
+  //need to understand typescript better for this to resolve
+  // article: FirebaseObjectObservable<Article>;
+  article: any;
 
   constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
@@ -44,6 +47,6 @@ export class EditArticleComponent implements OnInit {
     this.route.params
     // (+) converts string 'id' to a number
       .switchMap((params: Params) => this.service.getArticle(params['cid'], params['id']))
-      .subscribe((article: FirebaseObjectObservable<Article>) => this.article = article);
+      .subscribe((article: Article) => this.article = article);
   }
 }

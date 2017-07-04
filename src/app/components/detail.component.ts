@@ -21,7 +21,7 @@ import {Article} from './content.component'
 
 export class DetailArticleComponent implements OnInit {
 
-  article: FirebaseObjectObservable <Article>;
+  article: any;
 
   constructor(private af: AngularFire, private router: Router, private service: ArticlesService, private route: ActivatedRoute) {
     // this.articlesService.getArticles().subscribe((articles:Article[]) => {
